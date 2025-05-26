@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagens/Design sem nome (5).png" type="image/x-icon">
+    <title>Devog Line - CLiente</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="pag">
+        <div class="img"></div>
+        <div class="conteudo">
+            <div class="title">
+                <div class="cunt">
+                    <h1>Devog Line</h1>
+                    <div class="texto">
+                        <p>
+                            Esse é um texto ilustrativo pois o texto principal será 
+                            feito mais adiante. Essa página é onde os advogados 
+                            irão conhecer e analisar uma situação problema e, se se identificarem, 
+                            poderão assinar para utilizar o app, onde serão direcionados a adicionar seus casos e atualizar seus clientes sobre os casos.
+                            teste de atualização.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="buton">
+                <button id="clickButton">Assine por 200R$</button>
+                <div class="trasparent">
+                    <span id="clickCount">0</span>
+        </div>
+        <script src="JS/Index.js"></script>
+        <div class="secret">
+            <a href="comtador.html"></a>
+        </div>
+        
+    </header>
+
+    <script>
+        // Initialize the count from localStorage
+        let clickCount = parseInt(localStorage.getItem('clickCount')) || 0;
+        // Check if the user has already clicked
+        let hasClicked = localStorage.getItem('hasClicked') === 'true';
+
+        // Display the initial count
+        document.getElementById('clickCount').textContent = clickCount;
+
+        // Disable button if the user has already clicked
+        if (hasClicked) {
+            document.getElementById('clickButton').disabled = true;
+        }
+
+        // Add event listener for button click
+        document.getElementById('clickButton').addEventListener('click', function() {
+            if (!hasClicked) {
+                clickCount++;
+                localStorage.setItem('clickCount', clickCount);
+                document.getElementById('clickCount').textContent = clickCount;
+                // Mark that the user has clicked
+                localStorage.setItem('hasClicked', 'true');
+                // Disable the button
+                document.getElementById('clickButton').disabled = true;
+            }
+        });
+    </script>
+
+    <style>
+        /* Estilos básicos para o corpo e o html */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-image: url(imagens/JUstisa.png);
+            background-size: cover;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Estilos para a opacidade dos cliques */
+        span {
+            color: transparent;
+        }
+
+        /* Estilos para o cabeçalho */
+        header.pag {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            padding: 20px;
+        }
+
+        /* Estilos para o título */
+        h1 {
+            margin-top: 0;
+        }
+
+        /* Estilos para o texto */
+        .texto p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 20px;
+            text-align: justify;
+            margin-bottom: 40px;
+        }
+
+        /* Estilos para o botão */
+        .buton {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        button {
+            font-size: 1em;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        /* Estilos para o contêiner */
+        .cunt {
+            background-color: rgb(227, 227, 227);
+            padding: 20px;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90%;
+            margin: 20px;
+            margin-top: 150px;
+        }
+
+        .secret{
+            color: transparent;
+            
+        }
+
+        /* Media queries para tornar o site responsivo */
+        @media (max-width: 600px) {
+            .cunt {
+                margin: 10px;
+                padding: 15px;
+                margin-top: 200px;
+                margin-right: 0px;
+                margin-left: 5px;
+            }
+        
+            .texto p {
+                margin: 5px;
+                font-size: 15px;
+            }
+        
+            button {
+                font-size: 0.9em;
+                padding: 8px 16px;
+            }
+
+            body{
+                background-image: url(imagens/Design\ sem\ nome\ \(4\).png);
+                background-size: cover;
+            }
+
+            h1{
+                font-size: 25px;
+            }
+            
+            .title{
+                margin-left: 5px;
+                margin-right: 50px;
+            }
+        }
+    </style>
+</body>
+</html>
